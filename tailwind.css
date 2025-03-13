@@ -1,0 +1,33 @@
+/* Additional utility classes for font control */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-weight: 200;
+    font-family: 'Roboto', sans-serif;
+    @apply text-dark-blue-950;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    @apply text-mid-blue-800;
+  }
+}
+
+@layer utilities {
+  .font-body {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .font-headline {
+    font-family: 'Montserrat', sans-serif;
+  }
+}

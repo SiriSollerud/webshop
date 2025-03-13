@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto px-4 py-8">
-    <UBreadcrumb :items="breadcrumbItems" class="mb-6" />
+    <UBreadcrumb v-if="product" :links="breadcrumbLinks" />
 
     <div v-if="pending" class="flex justify-center items-center h-64">
       <UIcon name="i-heroicons-arrow-path" class="animate-spin h-8 w-8" />
@@ -13,7 +13,7 @@
       An error occurred while loading the product.
     </div>
 
-    <div v-else-if="product" class="bg-white p-6 rounded-lg shadow-sm">
+    <div v-else-if="product" class="pt-8">
       <ProductDetailView :product="product" />
     </div>
 
@@ -22,24 +22,24 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import { navigateTo } from '#app'
+import type { Product } from '~/types/product'
+
 definePageMeta({
   layout: 'default'
 })
 
-import { computed } from 'vue'
-import type { Product } from '~/composables/useProducts'
-
 const route = useRoute()
 const productId = parseInt(route.params.id as string)
 
-// Use useFetch to get the product data
+// Fetch product directly with useFetch
 const {
   data: product,
   pending,
   error
-} = await useFetch<Product>(`https://fakestoreapi.com/products/${productId}`, {
-  key: `product-${productId}`
-})
+} = await useFetch<Product>(`https://fakestoreapi.com/products/${productId}`)
 
 // SEO metadata based on the product
 useHead(() => ({
@@ -72,18 +72,35 @@ useHead(() => ({
   ]
 }))
 
-const breadcrumbItems = computed(() => [
-  {
-    label: 'Home',
-    to: '/'
-  },
-  {
-    label: product.value?.category || 'Category',
-    to: `/?category=${product.value?.category}`
-  },
-  {
-    label: product.value?.title || 'Product',
-    to: route.fullPath
-  }
-])
+// Breadcrumb links with only Home and Category
+const breadcrumbLinks = computed(() => {
+  if (!product.value) return []
+
+  return [
+    {
+      label: 'Home',
+      icon: 'i-heroicons-home',
+      to: '/'
+    },
+    {
+      label: product.value.category,
+      icon: 'i-heroicons-tag',
+      click: () => {
+        if (product.value) {
+          // Set the category in shared state
+          const selectedCategories = useState<string[]>('selectedCategories')
+          selectedCategories.value = [product.value.category]
+
+          navigateTo(
+            {
+              path: '/',
+              query: { category: product.value.category }
+            },
+            { replace: true }
+          )
+        }
+      }
+    }
+  ]
+})
 </script>

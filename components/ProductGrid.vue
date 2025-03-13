@@ -11,30 +11,29 @@
       {{ error }}
     </div>
 
-    <div v-else-if="products.length === 0" class="text-center p-8">
-      No products found matching your criteria.
+    <div
+      v-else-if="products.length === 0"
+      class="text-center p-8 flex flex-col gap-8"
+    >
+      <h3 class="font-heading text-2xl">
+        We did not find any products matching that search
+      </h3>
+      <p class="font-thin">Please search again.</p>
     </div>
 
     <div
       v-else
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10"
     >
-      <!-- Use NuxtLink with prefetch-on="interaction" for hover prefetching -->
-      <NuxtLink
-        v-for="product in products"
-        :key="product.id"
-        :to="`/product/${product.id}`"
-        prefetch-on="interaction"
-        class="block"
-      >
+      <div v-for="product in products" :key="product.id">
         <ProductCard :product="product" />
-      </NuxtLink>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { type Product } from '~/composables/useProducts'
+import type { Product } from '~/types/product'
 
 defineProps<{
   products: Product[]
