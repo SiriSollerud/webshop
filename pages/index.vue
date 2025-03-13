@@ -1,7 +1,6 @@
 <template>
   <div class="container mx-auto px-4 py-8">
-    <div class="mb-6">
-      <h3 class="text-lg font-semibold mb-3">Categories</h3>
+    <div class="flex flex-col gap-4 py-8">
       <CategoryToggleGroup
         v-if="categories.length > 0"
         :categories="categories"

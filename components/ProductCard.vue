@@ -6,7 +6,8 @@
       divide: 'divide-y-0',
       ring: '',
       rounded: 'rounded-3xl',
-      shadow: 'shadow-[0_2px_8px_rgba(0,0,0,0.16)]',
+      shadow:
+        'shadow-[0px_0px_18.7px_0px_rgba] hover:shadow-[0px_0px_21.3px_0px_rgba(29,22,196,0.21)] transition-shadow duration-300',
       border: {
         base: 'border-0'
       },
@@ -16,7 +17,10 @@
       },
       body: {
         base: 'flex-1 flex flex-col',
-        padding: 'px-6 pb-6 pt-2'
+        padding: 'p-6'
+      },
+      footer: {
+        padding: 'p-6'
       }
     }"
   >
@@ -43,7 +47,7 @@
     <NuxtLink
       :to="`/product/${product.id}`"
       :prefetch="false"
-      class="flex-1 flex flex-col gap-3"
+      class="flex-1 flex flex-col gap-2"
     >
       <h3
         class="font-heading font-semibold text-base leading-tight text-gray-900"
@@ -51,7 +55,7 @@
         {{ product.title }}
       </h3>
 
-      <div class="font-heading text-xl font-bold text-mid-blue-800">
+      <div class="font-heading text-xl font-bold text-mid-blue-700">
         {{ product.price.toFixed(2) }}
         <span class="text-sm font-normal">kr</span>
       </div>
