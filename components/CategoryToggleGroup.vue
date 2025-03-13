@@ -8,7 +8,7 @@
       v-for="category in categories"
       :key="category"
       :color="isSelected(category) ? 'primary' : 'gray'"
-      :variant="isSelected(category) ? 'solid' : 'soft'"
+      :variant="isSelected(category) ? 'solid' : 'solid'"
       size="sm"
       @click="toggleCategory(category)"
     >

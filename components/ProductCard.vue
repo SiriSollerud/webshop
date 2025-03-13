@@ -1,36 +1,35 @@
 <template>
-  <UCard
-    :ui="{
-      base: 'flex flex-col h-full',
-      background: 'bg-white',
-      divide: 'divide-y-0',
-      ring: '',
-      rounded: 'rounded-3xl',
-      shadow:
-        'shadow-[0px_0px_18.7px_0px_rgba] hover:shadow-[0px_0px_21.3px_0px_rgba(29,22,196,0.21)] transition-shadow duration-300',
-      border: {
-        base: 'border-0'
-      },
-      header: {
-        base: 'relative pt-4',
-        padding: 'px-6'
-      },
-      body: {
-        base: 'flex-1 flex flex-col',
-        padding: 'p-6'
-      },
-      footer: {
-        padding: 'p-6'
-      }
-    }"
+  <NuxtLink
+    :to="`/product/${product.id}`"
+    :prefetch="false"
   >
-    <template #header>
-      <div class="flex justify-center items-center h-48 w-full">
-        <NuxtLink
-          :to="`/product/${product.id}`"
-          class="flex items-center justify-center"
-          :prefetch="false"
-        >
+    <UCard
+      :ui="{
+        base: 'flex flex-col h-full',
+        background: 'bg-white',
+        divide: 'divide-y-0',
+        ring: '',
+        rounded: 'rounded-3xl',
+        shadow:
+          'shadow-[0px_0px_18.7px_0px_rgba] hover:shadow-[0px_0px_21.3px_0px_rgba(29,22,196,0.21)] transition-shadow duration-300',
+        border: {
+          base: 'border-0'
+        },
+        header: {
+          base: 'relative pt-4',
+          padding: 'px-6'
+        },
+        body: {
+          base: 'flex-1 flex flex-col',
+          padding: 'p-6'
+        },
+        footer: {
+          padding: 'p-6 relative'
+        }
+      }"
+    >
+      <template #header>
+        <div class="flex justify-center items-center h-48 w-full">
           <NuxtImg
             :src="product.image"
             :alt="product.title"
@@ -40,15 +39,9 @@
             loading="lazy"
             class="max-h-48 object-contain"
           />
-        </NuxtLink>
-      </div>
-    </template>
+        </div>
+      </template>
 
-    <NuxtLink
-      :to="`/product/${product.id}`"
-      :prefetch="false"
-      class="flex-1 flex flex-col gap-2"
-    >
       <h3
         class="font-heading font-semibold text-base leading-tight text-gray-900"
       >
@@ -76,23 +69,23 @@
           ({{ product.rating.count }})
         </div>
       </div>
-    </NuxtLink>
 
-    <template #footer>
-      <div class="flex">
-        <UButton
-          variant="action-icon-only"
-          :ui="{
-            base: 'h-12 w-12'
-          }"
-          @click="addToCart(product, 1)"
-          aria-label="Add to cart"
-        >
-          <UIcon name="mdi:cart-plus" class="w-6 h-6" />
-        </UButton>
-      </div>
-    </template>
-  </UCard>
+      <template #footer>
+        <div class="flex">
+          <UButton
+            variant="action-icon-only"
+            :ui="{
+              base: 'h-12 w-12 relative z-10'
+            }"
+            @click.prevent="addToCart(product, 1)"
+            aria-label="Add to cart"
+          >
+            <UIcon name="mdi:cart-plus" class="w-6 h-6" />
+          </UButton>
+        </div>
+      </template>
+    </UCard>
+  </NuxtLink>
 </template>
 
 <script setup lang="ts">

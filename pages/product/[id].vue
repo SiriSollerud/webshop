@@ -34,7 +34,6 @@ definePageMeta({
 const route = useRoute()
 const productId = parseInt(route.params.id as string)
 
-// Fetch product directly with useFetch
 const {
   data: product,
   pending,
@@ -44,7 +43,7 @@ const {
 // SEO metadata based on the product
 useHead(() => ({
   title: product.value
-    ? `${product.value.title} - MyWebShop`
+    ? `${product.value.title} - TechStyle`
     : 'Product Details',
   meta: [
     {
@@ -54,7 +53,7 @@ useHead(() => ({
     {
       property: 'og:title',
       content: product.value
-        ? `${product.value.title} - MyWebShop`
+        ? `${product.value.title} - TechStyle`
         : 'Product Details'
     },
     {
@@ -72,7 +71,6 @@ useHead(() => ({
   ]
 }))
 
-// Breadcrumb links with only Home and Category
 const breadcrumbLinks = computed(() => {
   if (!product.value) return []
 
@@ -87,7 +85,6 @@ const breadcrumbLinks = computed(() => {
       icon: 'i-heroicons-tag',
       click: () => {
         if (product.value) {
-          // Set the category in shared state
           const selectedCategories = useState<string[]>('selectedCategories')
           selectedCategories.value = [product.value.category]
 
