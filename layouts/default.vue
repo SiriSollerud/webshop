@@ -1,5 +1,5 @@
 <template>
-  <div class="grid-layout">
+  <div class="grid-layout bg-[#F2F1F5]">
     <Header />
 
     <main>
