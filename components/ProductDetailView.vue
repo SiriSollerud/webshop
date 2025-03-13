@@ -1,9 +1,6 @@
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-    <!-- Product Image -->
-    <div
-      class="p-8 rounded-lg flex items-center justify-center border border-gray-100"
-    >
+    <div class="p-8 rounded-lg flex items-center justify-center">
       <img
         :src="product.image"
         :alt="product.title"
@@ -11,12 +8,11 @@
       />
     </div>
 
-    <!-- Product Details -->
     <div>
       <h1 class="text-2xl font-bold">{{ product.title }}</h1>
-      <UBadge class="mt-2" color="gray">{{ product.category }}</UBadge>
+      <UBadge color="gray">{{ product.category }}</UBadge>
 
-      <div class="flex items-center mt-4">
+      <div class="flex items-center gap-1">
         <div class="flex">
           <UIcon
             v-for="i in 5"
@@ -26,12 +22,12 @@
                 ? 'i-heroicons-star-solid'
                 : 'i-heroicons-star'
             "
-            class="w-5 h-5 text-yellow-400"
+            class="w-4 h-4 text-dark-blue-950"
           />
         </div>
-        <span class="ml-2 text-sm text-gray-600"
-          >({{ product.rating.count }} reviews)</span
-        >
+        <div class="text-sm text-dark-blue-950">
+          ({{ product.rating.count }})
+        </div>
       </div>
 
       <p class="text-3xl font-bold mt-4">${{ product.price.toFixed(2) }}</p>
@@ -49,11 +45,16 @@
         />
 
         <UButton
-          color="primary"
-          icon="i-heroicons-shopping-cart"
+          variant="action"
+          icon="mdi:cart-plus"
+          :ui="{
+            icon: {
+              base: 'w-6 h-6'
+            }
+          }"
           @click="addToCart"
         >
-          Add to Cart
+          Add to cart
         </UButton>
       </div>
     </div>
@@ -63,7 +64,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useCart } from '~/composables/useCart'
-import type { Product } from '~/composables/useProducts'
+import type { Product } from '~/types/product'
 
 const props = defineProps<{
   product: Product

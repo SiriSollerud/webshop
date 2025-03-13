@@ -1,5 +1,5 @@
 import { computed, watch, onMounted } from 'vue'
-import type { Product } from '~/composables/useProducts'
+import type { Product } from '~/types/product'
 
 interface CartItem {
   product: Product
@@ -7,7 +7,6 @@ interface CartItem {
 }
 
 export function useCart() {
-  // Use Nuxt's built-in state management
   const cartItems = useState<CartItem[]>('cart', () => [])
   const cartError = useState<string | null>('cartError', () => null)
   const isInitialized = useState<boolean>('cartInitialized', () => false)

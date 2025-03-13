@@ -4,7 +4,7 @@
 
     <div
       v-if="cartItems.length === 0"
-      class="text-center p-12 border rounded-lg bg-white"
+      class="text-center p-12 rounded-lg bg-white"
     >
       <UIcon
         name="i-heroicons-shopping-cart"
@@ -17,7 +17,7 @@
       <UButton class="mt-6" to="/" color="primary"> Continue Shopping </UButton>
     </div>
 
-    <div v-else class="bg-white rounded-lg shadow-sm">
+    <div v-else class="rounded-lg shadow-sm">
       <UCard>
         <div class="divide-y">
           <div
@@ -27,7 +27,7 @@
           >
             <!-- Product Image -->
             <div
-              class="w-24 h-24 bg-white rounded flex-shrink-0 flex items-center justify-center border border-gray-100"
+              class="w-24 h-24 rounded flex-shrink-0 flex items-center justify-center border border-gray-100"
             >
               <img
                 :src="item.product.image"
