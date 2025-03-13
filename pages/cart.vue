@@ -29,13 +29,16 @@
             <div
               class="w-24 h-24 rounded flex-shrink-0 flex items-center justify-center border border-gray-100"
             >
-              <img
+              <NuxtImg
                 :src="item.product.image"
                 :alt="item.product.title"
+                width="80"
+                height="80"
+                format="webp"
+                loading="lazy"
                 class="max-h-full max-w-full object-contain p-2"
               />
             </div>
-
             <!-- Product Details -->
             <div class="flex-1">
               <h3 class="font-medium">{{ item.product.title }}</h3>

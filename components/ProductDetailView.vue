@@ -1,9 +1,13 @@
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
     <div class="p-8 rounded-lg flex items-center justify-center">
-      <img
+      <NuxtImg
         :src="product.image"
         :alt="product.title"
+        width="400"
+        height="400"
+        format="webp"
+        loading="lazy"
         class="max-h-96 max-w-full object-contain"
       />
     </div>
