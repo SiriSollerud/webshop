@@ -2,7 +2,7 @@
 
 A simple webshop demo built with Nuxt 3!
 
-![image](https://github.com/user-attachments/assets/9026d57c-61cf-487a-9c53-6a8e479389e3)
+✨ [Visit the site here! ](https://webshop-one-drab.vercel.app/) ✨ - deployed with Vercel
 
 ## Features
 
