@@ -16,11 +16,15 @@ export default defineAppConfig({
     button: {
       variant: {
         action:
-          'bg-mid-blue-700 hover:bg-light-blue-450 text-white text-lg border-0 rounded-full py-3 px-6 font-heading font-semibold focus:outline-none focus:ring-2 focus:ring-dark-blue-950 ',
+          'bg-mid-blue-700 hover:bg-dark-blue-950 text-white text-lg border-0 rounded-full py-3 px-6 font-heading font-semibold focus:outline-none ring-offset-2  focus:ring-2 focus:ring-mid-blue-700 ',
 
         'action-icon-only':
-          'bg-mid-blue-700 hover:bg-light-blue-450 text-white border-0 rounded-full p-3 focus:outline-none focus:ring-2 focus:ring-dark-blue-950  flex items-center justify-center'
-      }
+          'bg-mid-blue-700 hover:bg-dark-blue-950 text-white border-0 rounded-full p-3 focus:outline-none focus:ring-2 focus:ring-mid-blue-700 ring-offset-2 flex items-center justify-center'
+      },
+      rounded: 'rounded-full'
+    },
+    breadcrumb: {
+      base: 'cursor-pointer'
     }
   }
 })

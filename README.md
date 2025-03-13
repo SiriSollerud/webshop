@@ -1,6 +1,7 @@
-# MyWebShop
+# TechStyle
 
-A simple webshop demo built with Nuxt 3!
+From textile to tech - shop at TechStyle!
+A simple webshop demo built with Nuxt 3
 
 ✨ [Visit the site here! ](https://webshop-one-drab.vercel.app/) ✨ - deployed with Vercel
 
@@ -10,16 +11,15 @@ A simple webshop demo built with Nuxt 3!
 - 👚 Product info page
 - 🛒 Shopping cart page
 - 🔍 Text search
-- 📱  Responsive design
+- 📱 Responsive design
 
 ## Tech Stack
 
 - **Framework**: [Nuxt 3](https://nuxt.com/)
 - **UI Components**: [Nuxt UI](https://ui.nuxt.com/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Image Optimization**: [Nuxt Image](https://image.nuxt.com/)
 - **API**: [FakeStore API](https://fakestoreapi.com/)
-
+- **Deployment**: [Vercel](https://vercel.com/)
 
 ## Getting Started
 
@@ -40,3 +40,4 @@ npm install
 
 # Start development server
 npm run dev
+```

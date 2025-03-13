@@ -28,16 +28,16 @@ definePageMeta({
 })
 
 useHead({
-  title: 'Products - MyWebShop',
+  title: 'Products - TechStyle',
   meta: [
     {
       name: 'description',
-      content: 'Browse our collection of products at MyWebShop'
+      content: 'Browse our collection of products at TechStyle'
     },
-    { property: 'og:title', content: 'Products - MyWebShop' },
+    { property: 'og:title', content: 'Products - TechStyle' },
     {
       property: 'og:description',
-      content: 'Browse our collection of products at MyWebShop'
+      content: 'Browse our collection of products at TechStyle'
     },
     { property: 'og:type', content: 'website' }
   ]

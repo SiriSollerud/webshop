@@ -1,21 +1,23 @@
 <template>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-    <div class="p-8 rounded-lg flex items-center justify-center">
-      <NuxtImg
-        :src="product.image"
-        :alt="product.title"
-        width="400"
-        height="400"
-        format="webp"
-        loading="lazy"
-        class="max-h-96 max-w-full object-contain"
-      />
-    </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white p-10 rounded-lg">
+    <NuxtImg
+      :src="product.image"
+      :alt="product.title"
+      width="400"
+      height="400"
+      format="webp"
+      loading="lazy"
+      class="max-h-96 max-w-full object-contain"
+    />
 
     <div>
-      <h1 class="text-2xl font-bold">{{ product.title }}</h1>
       <UBadge color="gray">{{ product.category }}</UBadge>
+      <h1 class="text-2xl font-bold">{{ product.title }}</h1>
 
+      <div class="font-heading text-3xl font-bold text-mid-blue-700">
+        {{ product.price.toFixed(2) }}
+        <span class="text-sm font-normal">kr</span>
+      </div>
       <div class="flex items-center gap-1">
         <div class="flex">
           <UIcon
@@ -34,11 +36,9 @@
         </div>
       </div>
 
-      <p class="text-3xl font-bold mt-4">${{ product.price.toFixed(2) }}</p>
+      <p class="pt-6 text-gray-700">{{ product.description }}</p>
 
-      <p class="mt-6 text-gray-700">{{ product.description }}</p>
-
-      <div class="mt-8 flex items-center gap-4">
+      <div class="pt-8 flex items-center gap-4">
         <UInput
           v-model="quantity"
           type="number"

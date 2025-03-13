@@ -20,7 +20,7 @@
               <UIcon name="mdi:cart-outline" class="w-6 h-6" />
               <div
                 v-if="cartReady && totalItems > 0"
-                class="absolute -top-1 -right-1 min-w-[20px] h-5 bg-mid-blue-700 text-white text-xs font-medium rounded-full flex items-center justify-center px-1.5"
+                class="absolute -top-2 -right-2 min-w-[20px] h-5 bg-mid-blue-700 text-white text-xs font-medium rounded-full flex items-center justify-center px-1.5"
               >
                 {{ totalItems }}
               </div>

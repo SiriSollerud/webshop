@@ -13,27 +13,65 @@ export function useSearch() {
     }
   }
 
-  // Search for whole words only
+  // Calculate score for a single field and term
+  const getMatchScore = (text: string, term: string): number => {
+    if (!text) return 0
+
+    const lowerText = text.toLowerCase()
+
+    // Exact match
+    if (lowerText === term) return 100
+
+    // Word boundary match (whole word)
+    // Using indexOf and checking for word boundaries is faster than regex
+    const wordBoundaryMatch = ` ${lowerText} `.includes(` ${term} `)
+    if (wordBoundaryMatch) return 50
+
+    // Substring match
+    if (lowerText.includes(term)) return 30
+
+    return 0
+  }
+
+  // Optimized search with weighted relevance
   const searchProducts = <T extends { title: string; description: string }>(
     items: T[],
     query: string
   ): T[] => {
     if (!query.trim()) return items
 
-    // Create a regex that matches whole words only
-    // This uses word boundaries (\b) to ensure we match complete words
-    const words = query.trim().toLowerCase().split(/\s+/)
+    // Prepare search terms once
+    const searchTerms = query.trim().toLowerCase().split(/\s+/)
 
-    return items.filter(item => {
-      const title = item.title.toLowerCase()
-      const description = item.description.toLowerCase()
+    // Early return for empty search
+    if (searchTerms.length === 0) return items
 
-      // Check if ANY of the search words appear as whole words
-      return words.some(word => {
-        const regex = new RegExp(`\\b${word}\\b`, 'i')
-        return regex.test(title) || regex.test(description)
-      })
+    // Score calculation constants
+    const TITLE_WEIGHT = 1
+    const DESCRIPTION_WEIGHT = 0.1
+
+    // Calculate scores in a single pass
+    const scoredItems = items.map(item => {
+      let totalScore = 0
+
+      for (const term of searchTerms) {
+        // Get scores for title and description
+        const titleScore = getMatchScore(item.title, term) * TITLE_WEIGHT
+        const descScore =
+          getMatchScore(item.description, term) * DESCRIPTION_WEIGHT
+
+        // Use the higher score for this term
+        totalScore += Math.max(titleScore, descScore)
+      }
+
+      return { item, score: totalScore }
     })
+
+    // Filter and sort in one step to avoid extra array iterations
+    return scoredItems
+      .filter(({ score }) => score > 0)
+      .sort((a, b) => b.score - a.score)
+      .map(({ item }) => item)
   }
 
   return {
