@@ -1,75 +1,42 @@
-# Nuxt Minimal Starter
+# MyWebShop
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A simple webshop demo built with Nuxt 3!
 
-## Setup
+![image](https://github.com/user-attachments/assets/9026d57c-61cf-487a-9c53-6a8e479389e3)
 
-Make sure to install dependencies:
+## Features
+
+- 🛍️ Product grid with category filtering
+- 👚 Product info page
+- 🛒 Shopping cart page
+- 🔍 Text search
+- 📱  Responsive design
+
+## Tech Stack
+
+- **Framework**: [Nuxt 3](https://nuxt.com/)
+- **UI Components**: [Nuxt UI](https://ui.nuxt.com/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Image Optimization**: [Nuxt Image](https://image.nuxt.com/)
+- **API**: [FakeStore API](https://fakestoreapi.com/)
+
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18.x or higher - [see Nuxt 3 docs](https://nuxt.com/docs/getting-started/installation) for more info
+- npm or yarn
+
+### Installation
 
 ```bash
-# npm
+# Clone the repository
+git clone https://github.com/yourusername/mywebshop.git
+cd mywebshop
+
+# Install dependencies
 npm install
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+# Start development server
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
