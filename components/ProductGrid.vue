@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="isLoading" class="flex justify-center items-center h-64">
-      <UIcon name="i-heroicons-arrow-path" class="animate-spin h-8 w-8" />
+      <UIcon name="i-heroicons-arrow-path" class="h-8 w-8" />
     </div>
 
     <div

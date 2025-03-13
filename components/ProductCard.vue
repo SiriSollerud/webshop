@@ -27,9 +27,12 @@
           class="flex items-center justify-center"
           :prefetch="false"
         >
-          <img
+          <NuxtImg
             :src="product.image"
             :alt="product.title"
+            width="200"
+            height="200"
+            format="webp"
             loading="lazy"
             class="max-h-48 object-contain"
           />
