@@ -24,14 +24,14 @@
           </UButton>
         </div>
 
-        <!-- Cart items - only show when cart is not empty -->
+        <!-- Cart items -->
         <div v-else class="rounded-lg shadow-sm">
           <UCard>
             <div class="divide-y">
               <div
                 v-for="item in cartItems"
                 :key="item.product.id"
-                class="py-4 flex flex-col sm:flex-row gap-4"
+                class="py-4 flex flex-col sm:flex-row gap-4 sm:items-center"
               >
                 <div
                   class="w-24 h-24 rounded-md flex-shrink-0 flex items-center justify-center"
@@ -81,7 +81,9 @@
                   />
                 </div>
 
-                <div class="text-right flex flex-col items-end justify-between">
+                <div
+                  class="text-left flex items-center flex-row sm:flex-col sm:text-right max-sm:justify-between sm:gap-2"
+                >
                   <p class="font-bold">
                     ${{ (item.product.price * item.quantity).toFixed(2)
                     }}<span class="text-sm font-semibold">kr</span>

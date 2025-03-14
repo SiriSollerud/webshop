@@ -9,7 +9,6 @@ export default defineNuxtConfig({
     strict: true
   },
   app: {
-    // For scroll behavior
     keepalive: true,
     pageTransition: {
       name: 'page',
