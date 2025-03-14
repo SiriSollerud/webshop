@@ -43,7 +43,7 @@ const {
 // SEO metadata based on the product
 useHead(() => ({
   title: product.value
-    ? `${product.value.title} - TechStyle`
+    ? ` TechStyle - ${product.value.title}`
     : 'Product Details',
   meta: [
     {
